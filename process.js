@@ -84,5 +84,4 @@ http.createServer(function (req, res) {
         }
         processSearch();
       }
-      res.end();
     }).listen(port);
