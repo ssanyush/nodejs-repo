@@ -59,8 +59,7 @@ http.createServer(function (req, res) {
             }
     
             const companies = await collection.find(query).toArray();
-            var htmlpage = `<html><body>
-                  <h1>Results</h1><br>`;
+            var htmlpage = `<html><body>`;
     
             if (companies.length === 0) {
               res.write("<p>None found</p>");
@@ -68,7 +67,6 @@ http.createServer(function (req, res) {
             else {
               res.write("<p>Search Results:</p>");
               companies.forEach(company => {
-                res.write(`<p>Name of Company: ${company.company}, Ticker: ${company.ticker}, Price: $${company.price}</p>`);
                 htmlpage += `<p>Name of Company: ${company.company}, Ticker: ${company.ticker}, Price: $${company.price}</p><br>`;
               });
             }
