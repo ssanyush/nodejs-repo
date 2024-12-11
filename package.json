@@ -1,15 +1,15 @@
 {
   "name": "nodejs2",
-  "version": "1.0.0",
-  "main": "helper.js",
+  "version": "22.12.0",
+  "main": "process.js",
   "scripts": {
     "start": "node process.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-
+"repository": {
+  "type": "git",
+  "url": "https://github.com/ssanyush/nodejs-repo"
+},
+  
   "dependencies": {
     "mongodb": "^4.1.0",
     "http": "0.0.1",
