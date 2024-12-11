@@ -1,20 +1,17 @@
 {
-  "name": "nodejs2",
-  "version": "22.12.0",
-  "main": "process.js",
-  "scripts": {
-    "start": "node process.js"
-  },
-"repository": {
-  "type": "git",
-  "url": "https://github.com/ssanyush/nodejs-repo"
-},
-  
-  "dependencies": {
-    "mongodb": "^4.1.0",
-    "http": "0.0.1",
-    "url": "^0.11.0",
-    "querystring": "^0.2.0",
-    "fs": "0.0.1"
-  }
+    "name": "nodejs2",
+    "version": "22.12.0",
+    "main": "process.js",
+    "scripts": {
+        "start": "node process.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ssanyush/nodejs-repo"
+    },
+    "dependencies": {
+        "http": "^0.0.1-security",
+        "mongodb": "^6.12.0",
+        "url": "^0.11.4"
+    }
 }
