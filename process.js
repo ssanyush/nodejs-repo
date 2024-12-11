@@ -1,8 +1,8 @@
 const http = require('http');
 const url = require('url');
-const qs = require('querystring');
+//const qs = require('querystring');
 const MongoClient = require('mongodb').MongoClient;
-const fs = require('fs');
+//const fs = require('fs');
 
 const connectionString = "mongodb+srv://shayna:shayna@cluster0.5bupr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -59,20 +59,24 @@ http.createServer(function (req, res) {
             }
     
             const companies = await collection.find(query).toArray();
+            var htmlpage = `<html><body>
+                  <h1>Results</h1><br>`;
     
             if (companies.length === 0) {
-              res.write("<p>None</p>");
+              res.write("<p>None found</p>");
             } 
             else {
               res.write("<p>Search Results:</p>");
               companies.forEach(company => {
                 res.write(`<p>Name of Company: ${company.company}, Ticker: ${company.ticker}, Price: $${company.price}</p>`);
+                htmlpage += `<p>Name of Company: ${company.company}, Ticker: ${company.ticker}, Price: $${company.price}</p><br>`;
               });
             }
+           htmlpage += `</body></html>`;
+           res.end(htmlpage);
           } 
           catch (err) {
-            res.write("<p>Database error occurred.</p>");
-            console.error("Error fetching data from MongoDB:", err);
+            console.log("Error: " + err);
           } 
           finally {
             //await client.close();
